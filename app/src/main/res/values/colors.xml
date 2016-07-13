@@ -5,6 +5,7 @@
     <color name="colorAccent">#9E9E9E</color>
 
     <color name="colorWhite">#fff</color>
+    <color name="colorSplash">#FFA000</color>
 
     <color name="primary_light">#FFECB3</color>
     <color name="accent">#9E9E9E</color>
@@ -12,5 +13,9 @@
     <color name="secondary_text">#727272</color>
     <color name="icons">#212121</color>
     <color name="divider">#B6B6B6</color>
+
+    <color name="progress_start">#FFC107</color>
+
+
 
 </resources>
