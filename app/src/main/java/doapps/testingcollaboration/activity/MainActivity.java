@@ -6,23 +6,15 @@ import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.widget.ListView;
 import android.widget.TabHost;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-
 import doapps.testingcollaboration.R;
-import doapps.testingcollaboration.adapter.PortadaAdapter;
-import doapps.testingcollaboration.dto.Portada;
 
 public class MainActivity extends AppCompatActivity {
     final int color = 0xFFFF0000;
     final Drawable drawable = new ColorDrawable(color);
     private TabHost tabs;
-    private ArrayList<Portada> portadas;
-    private ListView visorLista ;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,12 +24,9 @@ public class MainActivity extends AppCompatActivity {
         toolbar.setTitle("");
         setSupportActionBar(toolbar);
         init();
-        initHardData();
     }
 
     private void init() {
-        visorLista = (ListView) findViewById( R.id.lisViewNoticias);
-
         Resources res = getResources();
 
         tabs = (TabHost) findViewById(android.R.id.tabhost);
@@ -55,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         spec.setIndicator("DEPORTES", getResources().getDrawable(android.R.drawable.ic_dialog_map));
 
         tabs.addTab(spec);
-        /*
+
         spec = tabs.newTabSpec("mitab3");
         spec.setContent(R.id.tab2);
         spec.setIndicator("GASTRONOMIA", getResources().getDrawable(android.R.drawable.ic_dialog_map));
@@ -67,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
         spec.setIndicator("ESPECIALES", getResources().getDrawable(android.R.drawable.ic_dialog_map));
 
         tabs.addTab(spec);
-        */
+
         tabs.setCurrentTab(0);
     }
 
@@ -80,25 +69,5 @@ public class MainActivity extends AppCompatActivity {
             TextView tv = (TextView) tabs.getTabWidget().getChildAt(i).findViewById(android.R.id.title);
             tv.setTextColor(getResources().getColor(R.color.primary_text));
         }
-        PortadaAdapter pa=new PortadaAdapter(MainActivity.this,portadas);
-        visorLista.setAdapter(pa);
-        pa.notifyDataSetChanged();
-    }
-
-    private void initHardData(){
-        portadas = new ArrayList<Portada>();
-
-        Portada portada = new Portada();
-        portada.setCodigo("123sxewedx");
-        portada.setFecha("21-12-2345 10:15 AM");
-        portada.setPregunta(":V los memes inundan facebook");
-        portada.setMensaje("123sxccedx");
-
-        Portada portada1 = new Portada();
-        portada1.setCodigo("12wqxccedx");
-        portada1.setFecha("21-12-234 11:45 AM");
-        portada1.setPregunta("CONSECUENCIAS DEL ACABE DEL PETROLEO");
-        portada1.setMensaje("Se ha acabdo el petroleo");
-
     }
 }
