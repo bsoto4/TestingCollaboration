@@ -1,7 +1,7 @@
 package doapps.testingcollaboration;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -42,7 +42,9 @@ public class LoginActivity extends AppCompatActivity {
                 sPass = etPassword.getText().toString();
                 if(validarEmail(sEmail) && sPass.length()>=6){
                     if(etPassword.equals("bsoto4@gmail.com")&&etPassword.equals("123456")){
-
+                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                        startActivity(intent);
+                        finish();
                     }else{
                         Toast.makeText(getBaseContext(), "Verificar email y/o constraseña", Toast.LENGTH_SHORT).show();
                     }
@@ -54,7 +56,6 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public boolean validarEmail(String emailAddress) {
-
         regexPattern = Pattern.compile("^[(a-zA-Z-0-9-\\_\\+\\.)]+@[(a-z-A-z)]+\\.[(a-zA-z)]{2,3}$");
         regMatcher   = regexPattern.matcher(emailAddress);
         if(regMatcher.matches()){
@@ -63,6 +64,5 @@ public class LoginActivity extends AppCompatActivity {
             return false;
         }
     }
-
 }
 
