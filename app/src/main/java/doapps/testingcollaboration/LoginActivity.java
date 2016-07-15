@@ -40,10 +40,14 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 sEmail = etEmail.getText().toString();
                 sPass = etPassword.getText().toString();
-                if(validarEmail(sEmail)){
-                    Toast.makeText(getBaseContext(), "Email válido", Toast.LENGTH_SHORT).show();
+                if(validarEmail(sEmail) && sPass.length()>=6){
+                    if(etPassword.equals("bsoto4@gmail.com")&&etPassword.equals("123456")){
+
+                    }else{
+                        Toast.makeText(getBaseContext(), "Verificar email y/o constraseña", Toast.LENGTH_SHORT).show();
+                    }
                 }else{
-                    Toast.makeText(getBaseContext(), "Email inválido", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getBaseContext(), "Verificar datos", Toast.LENGTH_SHORT).show();
                 }
             }
         });
